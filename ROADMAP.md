@@ -9,7 +9,7 @@ demonstrated pattern of shipping work earlier than planned. Treat this
 roadmap as the general shape of where the project is going, not as a
 schedule.
 
-## Current Version: 0.6.1
+## Current Version: 0.7.0
 
 ## About this rewrite
 
@@ -236,6 +236,13 @@ that can be reused by API consumers and future daemon/policy work.
       CPython tokenizer/parser `SystemError` handling and deterministic
       random-byte regression coverage
 
+### v0.7.0
+- [x] `pydepgate doctor` command with checks for installation
+      integrity, configuration validity, CVE database status, schema
+      version, and rule-set consistency
+- [x] Structured output suitable for support bundles and CI gates
+- [x] Tests for each diagnostic check
+
 ## New Identified Work
 
 The items below were not part of the original version ladder. They were
@@ -283,7 +290,7 @@ slot it displaced. The policy layer now starts the remaining work block
 because the evented runner and safe API surface give it a cleaner place
 to attach.
 
-### v0.7.0: Policy engine
+### v0.8.0: Policy engine
 
 Internal policy layer that severity-rewrites findings, applies rule
 precedence, detects conflicts with the builtin baseline, and surfaces
@@ -301,7 +308,7 @@ This was the original v0.6.0 slot. It moves here because v0.6.0
 shipped the evented scan and public API foundation that policy depends
 on.
 
-### v0.8.0: Cite and validate-finding
+### v0.9.0: Cite and validate-finding
 
 Citation generation and finding validation against the evidence
 database. Findings become portable artifacts that can be filed in
@@ -315,7 +322,7 @@ issues, security advisories, and CI failures.
       submissions, security advisory evidence, and CI failures
 - [ ] Tests that validation remains stable across renderer changes
 
-### v0.9.0: pydepgate doctor
+### ~~v0.9.0~~: pydepgate doctor - Shipped in v0.7.0 
 
 Diagnostic command for pydepgate installation, configuration, CVE
 database state, and any other tool-state surface that operators need
@@ -323,11 +330,11 @@ to verify before relying on scan output. Doctor answers the question
 "is pydepgate set up to do its job correctly." It does not scan
 packages or inspect the running interpreter.
 
-- [ ] `pydepgate doctor` command with checks for installation
+- [x] `pydepgate doctor` command with checks for installation
       integrity, configuration validity, CVE database status, schema
       version, and rule-set consistency
-- [ ] Structured output suitable for support bundles and CI gates
-- [ ] Tests for each diagnostic check
+- [x] Structured output suitable for support bundles and CI gates
+- [x] Tests for each diagnostic check
 
 ### v0.10.0: pydepgate preflight
 
@@ -387,7 +394,7 @@ directory enumeration, credential-format regex compilation, SSL
 verification disabled, external config fetch, and value truncation
 before exfiltration. Cluster-pattern correlation across the new
 signals so individually-low-confidence signals stack into
-high-confidence findings.
+high-confidence findings. This does not use regex alone, regex is utilized against AST output.
 
 - [ ] Sensitive-directory enumeration detection
 - [ ] Credential-pattern regex detection (label-based and

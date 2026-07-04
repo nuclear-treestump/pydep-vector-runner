@@ -32,6 +32,10 @@ From 0.5.0 onward, container releases are signed by digest and GitHub-attested. 
 
 </details>
 
+## What's New
+
+0.7.0 - Added `pydepgate doctor` command, will be required for policies and future daemon diagnostics
+
 ## Why this exists
 
 Python can execute package-provided code before the user's script does anything.

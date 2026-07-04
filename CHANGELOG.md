@@ -14,6 +14,18 @@ become binding stability promises with formal deprecation cycles.
 
 (no changes yet)
 
+## [0.7.0] - 2026-07-03
+
+### Added
+
+- Added `pydepgate doctor` command
+
+### Changed
+
+- Updated API to expose doctor commands
+- Updated CLI to use doctor commands
+
+
 ## [0.6.1] - 2026-06-20
 
 ### Added

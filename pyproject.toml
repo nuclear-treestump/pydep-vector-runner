@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pydepgate"
-version = "0.6.1"
+version = "0.7.0"
 description = "A zero dependency lightweight static analyzer designed for adversarial-shape code in python to detect supply chain attacks before they reach your interpreter."
 requires-python = ">=3.11"
 readme = "README.md"
