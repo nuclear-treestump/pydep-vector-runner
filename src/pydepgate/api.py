@@ -466,6 +466,27 @@ class ScanApiResult:
         return archive_path
 
 
+def doctor(
+    *,
+    include_event_smoke: bool = True,
+    rules_file: str | Path | None = None,
+):
+    """Run local pydepgate diagnostics and return a structured report.
+
+    The report is the same object used by ``pydepgate doctor``. It is
+    payload-safe and intended for support tooling, CI checks, and future
+    daemon health surfaces.
+    """
+    from pydepgate.diagnostics.doctor import DoctorOptions, run_doctor
+
+    return run_doctor(
+        DoctorOptions(
+            include_event_smoke=include_event_smoke,
+            rules_file=rules_file,
+        )
+    )
+
+
 def scan(
     target: str | Path,
     *,
@@ -861,5 +882,6 @@ __all__ = [
     "ScanFinding",
     "ScanIOC",
     "UNSAFE",
+    "doctor",
     "scan",
 ]
